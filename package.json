@@ -1,0 +1,15 @@
+{
+  "name": "node-visualforce-module",
+  "description": "node module",
+  "version": "0.1.0",
+  "author": {
+    "name": "salesforce-rs",
+    "email": "salesforce-rs@globant.com"
+  },
+  "main": "visualforce.js",
+  "dependencies":{
+    "grunt":"0.4.2",
+    "archiver": "0.4.10",
+    "lazystream": "0.1.0"
+  }
+}
