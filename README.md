@@ -1,4 +1,4 @@
-##Node visualforce library.
+##Node Visualforce Module.
 
 Node-Visualforce is a javascript library that allows a user to deploy a static web project into a Salesforce ORG as Visualforce pages including their static resources (css, img, fonts, js).
 It converts .html files to visualforce .page format and generates the corresponding apex tags and xml files. For the static resources it compresses all files in the designated folder to an only one .resource file.
@@ -11,7 +11,7 @@ We recommend that the package.json file includes the following dependencies:
   "name": "project-name",
   "version": "x.x.x",
   "dependencies":{
-    "visualforce":"0.1.0"
+    "node-visualforce-module":"0.1.0"
   }
 }
 ```
@@ -25,17 +25,15 @@ This method initialize the configuration of resources.
 	- inputPath: defines the source folder structure.
 	- outputPath: defines the target forlder structure.
 	- staticResourceFolder: defines internal source structure where you put css, js, img and font folders.
-	- staticResourceName: defines the name of the package.
 
 #####Build Config Example.
 ```js
 var visual = require('visualforce');
 
 var build = new visual.build({
-	'inputPath':'/input',
-	'ouputPath':'/output',
-	'staticResourceFolder':'/staticresources',
-	'staticResourceName':'staticresources'
+	'inputPath':'input/',
+	'outputPath':'output/',
+	'staticResourceFolder':'staticresources/'
 });
 ```
 if the user doesn't provide any options it takes the default values that are shown in the previous example.
@@ -67,17 +65,16 @@ and sets the org credentials and type of content that the user wants to upload.
 ```js
 var visual = require('visualforce');
 var deploy = visual.deploy({
-        user:'myusername@test.com',
-        pass:      'mypassword',
-        token:     'mytoken',
-        serverurl: 'https://test.salesforce.com', // default => https://login.salesforce.com
-        apiVersion: '29.0'
-      },
-      // Target-specific file lists and/or options go here.
-      pkg: {   // Package to deploy
-        staticresource: ['*'],
-        pages: ['*']
-      }
+  user:'myusername@test.com',
+  pass:      'mypassword',
+  token:     'mytoken',
+  serverurl: 'https://test.salesforce.com', // default => https://login.salesforce.com
+  apiVersion: '29.0',
+  // Target-specific file lists and/or options go here.
+  pkg: {   // Package to deploy
+    staticresource: ['*'],
+    pages: ['*']
+  }
 });
 ```
 if the user doesn't provide any options it takes the default values that are shown in the previous example.
