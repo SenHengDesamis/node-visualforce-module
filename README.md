@@ -36,6 +36,25 @@ var build = new visual.build({
 	'staticResourceFolder':'staticresources/'
 });
 ```
+You have to put all your project files inside the following folder structure:
+```shell
+  - /input
+    - /pages               #put all your .html files here
+    - /staticresources     #static resources folder put your resources files here.
+      - /<static resource name> # you can have more than one static resource, it will be indentified by the folder name
+        - /css
+        - /js
+        - /img
+        - /fonts
+```
+If you have not create the structure the module will create the base structure for you.
+
+Internally you need to reference the static resources (css, js, img, fonts) using relative ('/') paths, for example:
+- StyleSheets: "../staticresources/'static resources name'/css/sample.css"
+- JavaScripts: "../staticresources/'static resources name'/js/vendors/jquery.js"
+- Images: "../staticresources/'static resources name'/img/sample.png"
+- Fonts:  "../fonts/Roboto/Roboto-Regular.ttf" (in sample.css)
+
 if the user doesn't provide any options it takes the default values that are shown in the previous example.
 
 ####Build.execute(callback)
