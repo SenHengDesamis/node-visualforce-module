@@ -28,7 +28,7 @@ This method initialize the configuration of resources.
 
 #####Build Config Example.
 ```js
-var visual = require('visualforce');
+var visual = require('node-visualforce-module');
 
 var build = new visual.build({
 	'inputPath':'input/',
@@ -65,7 +65,7 @@ This function indicates the ending of the build process.
 
 #####Build execute Example.
 ```js
-var visual = require('visualforce');
+var visual = require('node-visualforce-module');
 
 var build = new visual.build();
 build.execute(function(args){
@@ -82,7 +82,7 @@ and sets the org credentials and type of content that the user wants to upload.
 
 ####Deploy method usage example.
 ```js
-var visual = require('visualforce');
+var visual = require('node-visualforce-module');
 var deploy = visual.deploy({
   user:'myusername@test.com',
   pass:      'mypassword',
@@ -103,7 +103,7 @@ This method sends the specific content to saleforce.com.
 
 ###Deploy execute usage example.
 ```js
-var visual = require('visualforce');
+var visual = require('node-visualforce-module');
 var deploy = visual.deploy(options);
 deploy.execute();
 ```
@@ -112,7 +112,7 @@ In the case the user wants to undeploy all the site or some specific pages he ca
 
 ####Deploy.destroy() method usage example.
 ```js
-var visual = require('visualforce');
+var visual = require('node-visualforce-module');
 var deploy = visual.deploy(options);
 deploy.destroy();
 ```
