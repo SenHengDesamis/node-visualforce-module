@@ -10,7 +10,8 @@
   "dependencies":{
     "grunt":"0.4.2",
     "archiver": "0.4.10",
-    "lazystream": "0.1.0"
+    "lazystream": "0.1.0",
+    "decompress-zip": "0.0.6"
   },
   "repository": "https://github.com/salesforce-demos/node-visualforce-module.git"
 }
