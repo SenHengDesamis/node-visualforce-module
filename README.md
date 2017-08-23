@@ -1,10 +1,12 @@
-##Node Visualforce Module.
+# Deprecated & Defunct. DO NOT USE.
+
+## Node Visualforce Module.
 
 Node-Visualforce is a javascript library that allows a user to deploy a static web project into a Salesforce ORG as Visualforce pages including their static resources (css, img, fonts, js).
 It converts .html files to visualforce .page format and generates the corresponding apex tags and xml files. For the static resources it compresses all files in the designated folder to an only one .resource file.
 This Grunt plugin works using the migration tool API to connect to a Salesforce ORG, so it requires ANT tool installed.
 
-###Package.json setup
+### Package.json setup
 We recommend that the package.json file includes the following dependencies:
 ```js
 {
@@ -15,18 +17,18 @@ We recommend that the package.json file includes the following dependencies:
   }
 }
 ```
-###Build object.
+### Build object.
 This object has two methods, called build() and execute() which allows the user to setup configuration, convert files and pack them.
 
-####Build.build(options).
+#### Build.build(options).
 This method initialize the configuration of resources.
 
-#####Build Config Options.
+##### Build Config Options.
 	- inputPath: defines the source folder structure (optional, by default => input/).
 	- outputPath: defines the target folder structure (optional, by default => output/).
 	- staticResourceFolder: defines internal source structure where you put css, js, img and font folders (optional, by default => staticresources/).
 
-#####Build Config Example.
+##### Build Config Example.
 ```js
 var visual = require('node-visualforce-module');
 
@@ -57,13 +59,13 @@ Internally you need to reference the static resources (css, js, img, fonts) usin
 
 if the user doesn't provide any options it takes the default values.
 
-####Build.execute(callback)
+#### Build.execute(callback)
 This method executes the conversion of files and pack tasks with the static content provided by the user.
 
-#####Execute method callback function
+##### Execute method callback function
 This function indicates the ending of the build process.
 
-#####Build execute Example.
+##### Build execute Example.
 ```js
 var visual = require('node-visualforce-module');
 
@@ -73,13 +75,13 @@ build.execute(function(args){
 });
 ```
 
-###Deploy Object.
+### Deploy Object.
 This object has three methods, called deploy(), execute() and destroy() which allows the user to setup configuration, send the package and static files to the saleforce.com org, and undeploy pages or staticresources from the salesforce.com org.
 
-####Deploy.deploy(options).
+#### Deploy.deploy(options).
 This method allows the user to setup the configuration for the deployment process to salesforce.com. It receives a config object and sets the org credentials and type of content that the user wants to upload.
 
-#####Deploy Config Options.
+##### Deploy Config Options.
   - user: Salesforce Username (required).
   - pass: Salesforce Password (required).
   - token: Salesforce Token (required).
@@ -88,7 +90,7 @@ This method allows the user to setup the configuration for the deployment proces
   - apiVersion: Api Version (optional, by default => 29.0).
   - outputPath: defines the target folder structure (optional, by default => output/).
 
-####Deploy method usage example.
+#### Deploy method usage example.
 ```js
 var visual = require('node-visualforce-module');
 var deploy = visual.deploy({
@@ -105,32 +107,32 @@ var deploy = visual.deploy({
 ```
 if the user doesn't provide any options it takes the default values.
 
-####Deploy.execute().
+#### Deploy.execute().
 This method sends the specific content to saleforce.com.
 
-###Deploy execute usage example.
+### Deploy execute usage example.
 ```js
 var visual = require('node-visualforce-module');
 var deploy = visual.deploy(options);
 deploy.execute();
 ```
-####Deploy.destroy().
+#### Deploy.destroy().
 In the case the user wants to undeploy all the site or some specific pages he can use the "destroy" method. It will remove the pages and staticresources specified in the options.
 
-####Deploy.destroy() method usage example.
+#### Deploy.destroy() method usage example.
 ```js
 var visual = require('node-visualforce-module');
 var deploy = visual.deploy(options);
 deploy.destroy();
 ```
 
-###Retrieve Object.
+### Retrieve Object.
 This object has two methods, called retrieve() and execute() which allows the user to setup configuration, retrieve the configured pages and staticresources from saleforce.com org.
 
-####Retrieve.retrieve(options).
+#### Retrieve.retrieve(options).
 This method allows the user to setup the configuration to be used in the retrieve process to salesforce.com. It receives a config object and sets the org credentials and type of content that the user wants to retrieve.
 
-#####Retrieve Config Options.
+##### Retrieve Config Options.
   - user: Salesforce Username (required).
   - pass: Salesforce Password (required).
   - token: Salesforce Token (required).
@@ -141,7 +143,7 @@ This method allows the user to setup the configuration to be used in the retriev
   - outputPath: defines the target folder structure (optional, by default => output/).
   - staticResourceFolder: defines staticresources folder where the uncompressed static resources will be saved (optional, by default => staticresources/).
 
-####Deploy method usage example.
+#### Deploy method usage example.
 ```js
 var visual = require('node-visualforce-module');
 var retrieve = visual.retrieve({
@@ -158,17 +160,17 @@ var retrieve = visual.retrieve({
 ```
 if the user doesn't provide any options it takes the default values.
 
-####Retrieve.execute().
+#### Retrieve.execute().
 This method retrieves the specific content from saleforce.com.
 
-###Retrieve execute usage example.
+### Retrieve execute usage example.
 ```js
 var visual = require('node-visualforce-module');
 var retrieve = visual.retrieve(options);
 deploy.execute();
 ```
 
-###Proxy options
+### Proxy options
 If you are under a proxy you will need to add the proxy host and port to the '<b>deploy</b>' and '<b>retrieve</b>' config options so the ant server can reach the org:
 ```js
   options:{
